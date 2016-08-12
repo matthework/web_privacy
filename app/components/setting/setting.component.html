@@ -1,0 +1,48 @@
+
+<h2>Setting</h2>
+<br>
+<label>Setting1: </label>
+<input class="input-new" type="text" [(ngModel)]="newWord" placeholder="Setting1"/><br>
+
+<label>Setting2: </label>
+<input class="input-new" type="text" [(ngModel)]="newWord" placeholder="Setting2"/><br>
+
+<label>Setting3: </label>
+<input class="input-new" type="text" [(ngModel)]="newWord" placeholder="Setting3"/><br>
+
+<h4>Sensitive Words: </h4>
+<table class="table-kw">
+	<tr>
+	  <th class="th-word">Word</th>
+	  <th class="th-cat">Categroy</th>
+	  <th class="th-inused">InUsed</th>
+	</tr>
+	<tr *ngFor="let kw of keywords">
+		<td>{{kw.name}}</td>
+		<td>{{kw.cat}}</td>
+		<td>{{kw.inused}}</td>
+	</tr>
+</table>
+
+<button class="button-s-add" *ngIf!="active" (click)="active=true">+</button><br>
+<br>
+
+<div *ngIf="active">
+	<h3>Add New Word: </h3><br>
+	<label>New: </label>
+	<input class="input-new" type="text" [(ngModel)]="newWord" placeholder="Enter a word"/><br>
+	<label>Category: </label>
+	<input class="input-cat" type="text" [(ngModel)]="cat" placeholder="Enter a category"/><br>
+	<label>InUsed: </label>
+	<input type="checkbox" [(ngModel)]="inused" placeholder="InUsed" /><br>
+	<button class="button-l-save" [disabled]="!newWord" (click)="active=false">Save</button>
+	<button class="button-l-cancel" (click)="active=false">Cancel</button><br>
+</div>
+
+<div *ngIf!="active">
+	<button class="button-save" [disabled]="newWord" (click)="toMain()">Save</button>
+	<button class="button-cancel" (click)="toMain()">Cancel</button>
+</div>
+<br>
+<br>
+<br>

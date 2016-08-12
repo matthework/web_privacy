@@ -1,0 +1,11 @@
+<ul>
+	<li><a [routerLink]="['/main']" routerLinkActive="active">Home</a></li>
+	<li><a [routerLink]="['/web']" routerLinkActive="active">Web</a></li>
+	<li><a [routerLink]="['/doc']" routerLinkActive="active">Document</a></li>
+	<li><a [routerLink]="['/setting']" routerLinkActive="active">Setting</a></li>
+	<li><a [routerLink]="['/about']" routerLinkActive="active">About</a></li>
+	<li style="float:right"><a class="active" (click)="auth.login()">Log In</a></li>
+</ul>
+<br>
+
+<router-outlet></router-outlet>

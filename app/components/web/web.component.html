@@ -1,0 +1,36 @@
+
+<div *ngIf!=showOut>
+  <br>
+  <h2>Privacy Guard for Webpages</h2>
+  <br>
+  <input class="input-main" type="text" [(ngModel)]="input" placeholder="Enter a URL"/>
+  <button class="button-go" (click)="modifySourcePage(input)">Go</button>
+  <p class="text-eg">eg: http://myservermatt.herokuapp.com/index.html</p>
+  <br>
+  <br>
+</div>
+
+<div *ngIf=showOut>
+  <br>
+  <h2>Result:</h2>
+  <div *ngIf=input>
+  <!-- <div class="innerhtml" [innerHTML]="bb"></div> -->
+  <object class="innerhtml" type="text/html" data="test.html"></object>
+  <br>
+  <br>
+  <h2>Original:</h2>
+  <object id="a2" class="innerhtml" type="text/html" data={{url}}></object>
+  </div>
+  <br>
+  <br>
+  <br>
+  <button class="button-main" (click)="toMain()">Back</button>
+  <br>
+  <br>
+  <br>
+</div>
+
+
+
+
+
