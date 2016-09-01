@@ -5,19 +5,17 @@ var web_component_1 = require('./web/web.component');
 var doc_component_1 = require('./doc/doc.component');
 var setting_component_1 = require('./setting/setting.component');
 var about_component_1 = require('./about/about.component');
+var word_component_1 = require('./word/word.component');
+var word_detail_component_1 = require('./word/word-detail/word-detail.component');
+var word_edit_component_1 = require('./word/word-edit/word-edit.component');
+var word_new_component_1 = require('./word/word-new/word-new.component');
 var routes = [
     {
         path: '',
-        redirectTo: 'main',
-        pathMatch: 'full'
-    },
-    {
-        path: '#',
-        redirectTo: 'main',
+        component: main_component_1.MainComponent,
     },
     {
         path: 'main',
-        // name: 'Main',
         component: main_component_1.MainComponent,
     },
     {
@@ -31,6 +29,22 @@ var routes = [
     {
         path: 'setting',
         component: setting_component_1.SettingComponent,
+    },
+    {
+        path: 'words',
+        component: word_component_1.WordComponent,
+    },
+    {
+        path: 'word/detail/:id',
+        component: word_detail_component_1.WordDetailComponent,
+    },
+    {
+        path: 'word/edit/:id',
+        component: word_edit_component_1.WordEditComponent,
+    },
+    {
+        path: 'word/new',
+        component: word_new_component_1.WordNewComponent,
     },
     {
         path: 'about',

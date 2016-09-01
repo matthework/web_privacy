@@ -1,0 +1,44 @@
+
+<div *ngIf="auth.authenticated()">
+
+<h2>Add New Keyword</h2><br>
+
+<label>*Name: </label>
+<input class="input-name" type="text" [(ngModel)]="newWord.name" placeholder="" /><br>
+
+<label>Category: </label>
+<input class="input-cat" type="text" [(ngModel)]="newWord.category" placeholder="" /><br>
+
+<label>Tags: </label>
+<input class="input-tags" type="text" [(ngModel)]="newTag" placeholder=""><button class="button-s-add" (click)="addTag(newTag)">+</button><text *ngFor="let tag of newWord.tags">{{tag}} <button class="button-s-delete" (click)="deleteTag(tag)">-</button></text><br>
+
+<label>InUsed: </label>
+<input type="checkbox" [(ngModel)]="newWord.inused" placeholder="InUsed" /><br>
+<br>
+<br>
+
+<div *ngIf="wordNet">
+<h3>Find more Synonyms from WordNet.</h3>
+<button class="button-wnet-save" (click)="wordNet=false">Save</button>
+<button class="button-wnet-cancel" (click)="wordNet=false">Cancel</button><br>
+</div>
+
+<div *ngIf="!wordNet">
+<button class="button-wordnet" *ngIf="!wordNet" (click)="wordNet=true">+ WordNet</button>
+<button class="button-add" [disabled]="!newWord.name" (click)="addWord()">Save</button>
+<button class="button-cancel" (click)="toWords()">Cancel</button>
+</div>
+<br>
+<br>
+<br>
+
+</div>
+
+<br>
+<div *ngIf="!auth.authenticated()">
+<h3><i>You are not logged in, please click 'Log in' button to login.</i></h3>
+{{auth.login()}}
+</div>
+
+
+

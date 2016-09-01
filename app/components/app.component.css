@@ -20,7 +20,7 @@ nav a {
   margin-bottom: 30px;
   display: inline-block;
   background-color: #eee;
-  /*border-radius: 0px;*/
+  border-radius: 4px;
 }
 nav a:visited, a:link {
   color: #607D8B;
@@ -41,7 +41,7 @@ ul {
     overflow: hidden;
     border: 1px solid #e7e7e7;
     background-color: #f3f3f3;
-    /*border-radius: 2px;*/
+    border-radius: 0px;
 }
 
 li {

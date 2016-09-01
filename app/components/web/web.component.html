@@ -1,4 +1,6 @@
 
+<div *ngIf="auth.authenticated()">
+
 <div *ngIf!=showOut>
   <br>
   <h2>Privacy Guard for Webpages</h2>
@@ -30,6 +32,13 @@
   <br>
 </div>
 
+</div>
+
+<br>
+<div *ngIf="!auth.authenticated()">
+<h3><i>You are not logged in, please click 'Log in' button to login.</i></h3>
+{{auth.login()}}
+</div>
 
 
 

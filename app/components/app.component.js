@@ -10,8 +10,11 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 var core_1 = require('@angular/core');
 var router_1 = require('@angular/router');
+var word_service_1 = require('./word/word.service');
+var auth_service_1 = require('./auth/auth.service');
 var AppComponent = (function () {
-    function AppComponent() {
+    function AppComponent(auth) {
+        this.auth = auth;
         this.title = 'My Privacy App!';
     }
     AppComponent = __decorate([
@@ -20,9 +23,9 @@ var AppComponent = (function () {
             templateUrl: 'app/components/app.component.html',
             styleUrls: ['app/components/app.component.css'],
             directives: [router_1.ROUTER_DIRECTIVES],
-            providers: []
+            providers: [word_service_1.WordService, auth_service_1.AuthService]
         }), 
-        __metadata('design:paramtypes', [])
+        __metadata('design:paramtypes', [auth_service_1.AuthService])
     ], AppComponent);
     return AppComponent;
 }());

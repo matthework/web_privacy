@@ -6,21 +6,19 @@ import {DocComponent} from './doc/doc.component';
 import {SettingComponent} from './setting/setting.component';
 import {AboutComponent} from './about/about.component';
 
+import {WordComponent} from './word/word.component';
+import {WordDetailComponent} from './word/word-detail/word-detail.component';
+import {WordEditComponent} from './word/word-edit/word-edit.component';
+import {WordNewComponent} from './word/word-new/word-new.component';
+
 const routes: RouterConfig = [
   {
       path: '',
-      redirectTo: 'main',
-      pathMatch: 'full'
-  },
-  {
-      path: '#',
-      redirectTo: 'main',
+      component: MainComponent,
   },
   {
       path: 'main',
-      // name: 'Main',
       component: MainComponent,
-      // useAsDefault: true
   },
   {
       path: 'web',
@@ -33,6 +31,22 @@ const routes: RouterConfig = [
   {
       path: 'setting',
       component: SettingComponent,
+  },
+  {
+      path: 'words',
+      component: WordComponent,
+  },
+  {
+      path: 'word/detail/:id',
+      component: WordDetailComponent,
+  },
+  {
+      path: 'word/edit/:id',
+      component: WordEditComponent,
+  },
+  {
+      path: 'word/new',
+      component: WordNewComponent,
   },
   {
       path: 'about',

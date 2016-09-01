@@ -1,1 +1,1 @@
-web: privacy
+web: web_privacy

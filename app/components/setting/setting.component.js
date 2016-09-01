@@ -10,9 +10,11 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 var core_1 = require('@angular/core');
 var router_1 = require('@angular/router');
+var auth_service_1 = require('../auth/auth.service');
 var SettingComponent = (function () {
-    function SettingComponent(_router) {
+    function SettingComponent(_router, auth) {
         this._router = _router;
+        this.auth = auth;
         this.active = false;
         this.newWord = "";
         this.cat = "";
@@ -32,7 +34,7 @@ var SettingComponent = (function () {
             templateUrl: 'app/components/setting/setting.component.html',
             styleUrls: ['app/components/setting/setting.component.css'],
         }), 
-        __metadata('design:paramtypes', [router_1.Router])
+        __metadata('design:paramtypes', [router_1.Router, auth_service_1.AuthService])
     ], SettingComponent);
     return SettingComponent;
 }());

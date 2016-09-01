@@ -1,0 +1,46 @@
+
+<div *ngIf="auth.authenticated()">
+
+<div *ngIf="words">
+<h2>Keywords</h2>
+<input [(ngModel)]="query" placeholder="Search for">
+<button class="button-add" *ngIf="showAll" (click)="addWord()">+</button>
+<button class="button-back" *ngIf="!showAll" (click)="toWords()">Back</button>
+</div>
+
+<div *ngIf!="words">
+<h2>Add New Keyword</h2>
+<input [(ngModel)]="query" placeholder="Search for">
+<button class="button-add2" (click)="addWord()">+</button><br>
+</div>
+
+<table class="table-words">
+   <tr>
+      <th class="th-name">Name</th>
+      <th class="th-cat">Category</th>
+      <th class="th-tags">Tags</th>
+      <th class="th-inused">InUsed</th>
+      <th class="th-last"></th>
+   </tr>
+   <tr *ngFor="let word of words | filter:query">
+      <td class="word" (click)="onSelect(word);toEdit(word._id)">{{word.name}}</td>
+      <td class="td-cat">
+         <text class="t-cat" (click)="groupByCat(word.category)">{{word.category}}</text>
+      </td>
+      <td class="td-tags">
+         <text *ngFor="let tag of word.tags"><text class="t-tag" (click)="groupByTag(tag)"> {{tag}}, </text></text>
+      </td>
+      <td class="td-inused">{{word.inused | yes_no}}</td>
+      <td class="td-last"><button class="button-s-x" (click)="deleteWordPop(word._id)">X</button></td>
+   </tr>
+</table>
+
+</div>
+
+<br>
+<div *ngIf="!auth.authenticated()">
+<h3><i>You are not logged in, please click 'Log in' button to login.</i></h3>
+{{auth.login()}}
+</div>
+
+

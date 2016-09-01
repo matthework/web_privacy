@@ -1,0 +1,34 @@
+
+<div *ngIf="auth.authenticated()">
+
+<div *ngIf="word">
+<h2>Edit Word - {{word.name}}</h2><br>
+
+<label>Name: </label>
+<input class="input-name" type="text" [(ngModel)]="word.name" placeholder="" /><br>
+
+<label>Category: </label>
+<input class="input-cat" type="text" [(ngModel)]="word.category" placeholder="" /><br>
+
+<label>Tags: </label>
+<input class="input-tags" type="text" [(ngModel)]="newTag" placeholder=""><button class="button-s-add" (click)="addTag(newTag)">+</button><text *ngFor="let tag of word.tags">{{tag}} <button class="button-s-delete" (click)="deleteTag(tag)">-</button></text><br>
+
+<label>InUsed: </label>
+<input type="checkbox" [(ngModel)]="word.inused" placeholder="InUsed" /><br>
+
+<button class="button-add" (click)="addWord()">New</button>
+<button class="button-save" [disabled]="!word.name" (click)="updateWord()">Save</button>
+<button class="button-cancel" (click)="toWords()">Cancel</button>
+
+<br>
+<br>
+<br>
+</div>
+
+</div>
+
+<br>
+<div *ngIf="!auth.authenticated()">
+<h3><i>You are not logged in, please click 'Log in' button to login.</i></h3>
+{{auth.login()}}
+</div>

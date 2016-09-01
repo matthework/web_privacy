@@ -10,9 +10,11 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 var core_1 = require('@angular/core');
 var router_1 = require('@angular/router');
+var auth_service_1 = require('../auth/auth.service');
 var MainComponent = (function () {
-    function MainComponent(_router) {
+    function MainComponent(_router, auth) {
         this._router = _router;
+        this.auth = auth;
         this.input = "";
         this.url = "";
         this.showOut = false;
@@ -60,7 +62,7 @@ var MainComponent = (function () {
             templateUrl: 'app/components/main/main.component.html',
             styleUrls: ['app/components/main/main.component.css'],
         }), 
-        __metadata('design:paramtypes', [router_1.Router])
+        __metadata('design:paramtypes', [router_1.Router, auth_service_1.AuthService])
     ], MainComponent);
     return MainComponent;
 }());

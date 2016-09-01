@@ -1,6 +1,8 @@
 import {Component} from '@angular/core';
 import {Router} from '@angular/router';
 
+import {AuthService} from '../auth/auth.service';
+
 @Component({
     selector: 'my-main',
     templateUrl: 'app/components/main/main.component.html',
@@ -18,7 +20,8 @@ export class MainComponent {
 	bb = "document.body.style.backgroundColor='lightblue'";
 
   	constructor (
-    	private _router: Router) {}
+    	private _router: Router,
+        private auth: AuthService) {}
 
 	modifySourcePage(str:string) {
 		console.log('input value: ', str.substring(0, 4));

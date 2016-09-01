@@ -1,6 +1,23 @@
 
+<div *ngIf="auth.authenticated()">
+
+<div *ngIf="auth.userProfile">
+  <br>
+  <br>
+  <h2><i>{{auth.userProfile.name}}, you are just logged in.</i></h2>
+  <img [src]="auth.userProfile.picture" alt="" class="profile-img">
+  <br>
+  <br>
+  <br>
+  <h3><strong>Name: </strong> {{auth.userProfile.name}}</h3>
+  <h3><strong>Email: </strong> {{auth.userProfile.email}}</h3>
+  <br>
+</div>
+
+</div>
+
+<div *ngIf="!auth.authenticated()">
 <h1>Welcome to Privacy Guard System !</h1>
 <br>
-<h2><i>Introduction</i></h2>
-<br>
-<br>
+<h3><i>You are not logged in, please click 'Log in' button to login.</i></h3>
+</div>

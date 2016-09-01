@@ -6,7 +6,7 @@ import (
 	"net/http"
 	"os"
 	// "encoding/json"
-	// "github.com/gorilla/mux"
+	"github.com/gorilla/mux"
 )
 
 func loadIndex(w http.ResponseWriter) {
@@ -39,6 +39,16 @@ func handlerURL(w http.ResponseWriter, r *http.Request) {
 func addRoutes() {
 
 	http.HandleFunc("/", handlerURL)
+
+	router := mux.NewRouter()
+
+	router.HandleFunc("/api/words", viewWords).Methods("GET")
+	router.HandleFunc("/api/word/detail/{id}", viewFindWordByID).Methods("GET")
+	router.HandleFunc("/api/word/new", addNewWord).Methods("POST")
+	router.HandleFunc("/api/word/update/{id}", updateWord).Methods("POST")
+	router.HandleFunc("/api/word/remove/{id}", removeWord).Methods("POST")
+
+	http.Handle("/api/", router)
 
 }
 
