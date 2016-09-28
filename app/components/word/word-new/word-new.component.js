@@ -31,7 +31,7 @@ var WordNewComponent = (function () {
         this.toWords();
     };
     WordNewComponent.prototype.toWords = function () {
-        this._router.navigate(['/words']);
+        this._router.navigate(['/keywords']);
         // location.reload();
     };
     WordNewComponent.prototype.addTag = function (tag) {

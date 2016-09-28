@@ -24,7 +24,7 @@ var AuthService = (function () {
                 primaryColor: "#4CAF50"
             },
             languageDictionary: {
-                title: "Web Privacy"
+                title: "Privacy Guard"
             },
         });
         // Set userProfile attribute if already saved profile

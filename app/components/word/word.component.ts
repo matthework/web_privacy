@@ -2,7 +2,6 @@ import {Component,OnInit} from '@angular/core';
 import {Router} from '@angular/router';
 
 import {Word} from './word';
-import {WordDetailComponent} from './word-detail/word-detail.component';
 import {WordEditComponent} from './word-edit/word-edit.component';
 import {WordService} from './word.service';
 
@@ -15,7 +14,7 @@ import {YesNoPipe} from '../pipe/yes-no-pipe';
     selector: 'my-word',
     templateUrl: 'app/components/word/word.component.html',
     styleUrls: ['app/components/word/word.component.css'],
-    directives: [WordDetailComponent,WordEditComponent],
+    directives: [WordEditComponent],
     pipes: [FilterArrayPipe,YesNoPipe]
 })
 
@@ -43,20 +42,16 @@ export class WordComponent implements OnInit {
   }
 
   toWords() {
-    this._router.navigate(['/words']);
+    this._router.navigate(['/keywords']);
     location.reload();
   }
 
-  toDetail() {
-    this._router.navigate(['/word/detail', this.selectedWord._id]);
-  }
-
   toEdit(wid:string) {
-    this._router.navigate(['/word/edit', wid]);
+    this._router.navigate(['/keyword/edit', wid]);
   }
 
   addWord() {
-    this._router.navigate(['/word/new']);
+    this._router.navigate(['/keyword/new']);
   }
 
   removeWord(id:string) {

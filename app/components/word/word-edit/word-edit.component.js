@@ -19,6 +19,8 @@ var WordEditComponent = (function () {
         this.route = route;
         this.auth = auth;
         this.active = false;
+        this.newTag = "";
+        this.wordNet = false;
     }
     WordEditComponent.prototype.ngOnInit = function () {
         this.getParams();
@@ -39,11 +41,11 @@ var WordEditComponent = (function () {
         this._wordService.getWord(this.id).subscribe(function (word) { _this.word = word; });
     };
     WordEditComponent.prototype.toWords = function () {
-        this._router.navigate(['/words']);
+        this._router.navigate(['/keywords']);
         // location.reload();
     };
     WordEditComponent.prototype.toWordDetail = function () {
-        this._router.navigate(['/word/detail', this.id]);
+        this._router.navigate(['/keyword/detail', this.id]);
         // location.reload();
     };
     WordEditComponent.prototype.updateWord = function () {
@@ -56,7 +58,7 @@ var WordEditComponent = (function () {
         this.toWords();
     };
     WordEditComponent.prototype.addWord = function () {
-        this._router.navigate(['/word/new']);
+        this._router.navigate(['/keyword/new']);
     };
     WordEditComponent.prototype.removeWord = function () {
         this._wordService.deleteWord(this.id).subscribe();
@@ -71,6 +73,7 @@ var WordEditComponent = (function () {
     };
     WordEditComponent.prototype.addTag = function (tag) {
         this.word.tags.push(tag.toUpperCase());
+        this.newTag = "";
     };
     WordEditComponent.prototype.deleteTag = function (tag) {
         var index = this.word.tags.indexOf(tag);

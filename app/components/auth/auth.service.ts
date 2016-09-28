@@ -16,7 +16,7 @@ export class AuthService {
       primaryColor: "#4CAF50"
     },
     languageDictionary: {
-      title: "Web Privacy"
+      title: "Privacy Guard"
     },
   });
 

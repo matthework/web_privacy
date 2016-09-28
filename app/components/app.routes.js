@@ -3,10 +3,9 @@ var router_1 = require('@angular/router');
 var main_component_1 = require('./main/main.component');
 var web_component_1 = require('./web/web.component');
 var doc_component_1 = require('./doc/doc.component');
-var setting_component_1 = require('./setting/setting.component');
+var options_component_1 = require('./options/options.component');
 var about_component_1 = require('./about/about.component');
 var word_component_1 = require('./word/word.component');
-var word_detail_component_1 = require('./word/word-detail/word-detail.component');
 var word_edit_component_1 = require('./word/word-edit/word-edit.component');
 var word_new_component_1 = require('./word/word-new/word-new.component');
 var routes = [
@@ -27,23 +26,19 @@ var routes = [
         component: doc_component_1.DocComponent,
     },
     {
-        path: 'setting',
-        component: setting_component_1.SettingComponent,
+        path: 'options',
+        component: options_component_1.OptionsComponent,
     },
     {
-        path: 'words',
+        path: 'keywords',
         component: word_component_1.WordComponent,
     },
     {
-        path: 'word/detail/:id',
-        component: word_detail_component_1.WordDetailComponent,
-    },
-    {
-        path: 'word/edit/:id',
+        path: 'keyword/edit/:id',
         component: word_edit_component_1.WordEditComponent,
     },
     {
-        path: 'word/new',
+        path: 'keyword/new',
         component: word_new_component_1.WordNewComponent,
     },
     {

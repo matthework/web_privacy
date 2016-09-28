@@ -18,6 +18,8 @@ export class WordEditComponent implements OnInit {
   active = false;
   sub: any;
   id: string;
+  newTag = "";
+  wordNet = false;
 
   constructor(
     private _wordService: WordService, 
@@ -46,12 +48,12 @@ export class WordEditComponent implements OnInit {
   }
 
   toWords() {
-    this._router.navigate(['/words']);
+    this._router.navigate(['/keywords']);
     // location.reload();
   }
 
   toWordDetail() {
-    this._router.navigate(['/word/detail',this.id]);
+    this._router.navigate(['/keyword/detail',this.id]);
     // location.reload();
   }
 
@@ -66,7 +68,7 @@ export class WordEditComponent implements OnInit {
   }
 
   addWord() {
-    this._router.navigate(['/word/new']);
+    this._router.navigate(['/keyword/new']);
   }
 
   removeWord() {
@@ -84,6 +86,7 @@ export class WordEditComponent implements OnInit {
 
   addTag(tag:string) {
     this.word.tags.push(tag.toUpperCase());
+    this.newTag = "";
   }
 
   deleteTag(tag:string) {

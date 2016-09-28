@@ -1,23 +1,29 @@
+<!-- Header -->
+<div class="docs-header">
+   <h1 class=" col-md-10 col-md-offset-1">Welcome to Privacy Guard System !</h1>
+</div>
+
+<!-- Content -->
+<div class="col-md-10 col-md-offset-1">
 
 <div *ngIf="auth.authenticated()">
 
-<div *ngIf="auth.userProfile">
-  <br>
-  <br>
-  <h2><i>{{auth.userProfile.name}}, you are just logged in.</i></h2>
-  <img [src]="auth.userProfile.picture" alt="" class="profile-img">
-  <br>
-  <br>
-  <br>
-  <h3><strong>Name: </strong> {{auth.userProfile.name}}</h3>
-  <h3><strong>Email: </strong> {{auth.userProfile.email}}</h3>
-  <br>
-</div>
+  <div *ngIf="auth.userProfile">
+    <h3><i>{{auth.userProfile.name}}, you are just logged in.</i></h3>
+    <br>
+    <img class="profile-img" [src]="auth.userProfile.picture" alt="">
+    <br>
+    <br>
+    <br>
+    <h4>Name: {{auth.userProfile.name}}</h4>
+    <h4>Email: {{auth.userProfile.email}}</h4>
+    <br>
+  </div>
 
 </div>
 
 <div *ngIf="!auth.authenticated()">
-<h1>Welcome to Privacy Guard System !</h1>
-<br>
 <h3><i>You are not logged in, please click 'Log in' button to login.</i></h3>
+</div>
+
 </div>

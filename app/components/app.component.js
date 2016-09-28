@@ -15,7 +15,7 @@ var auth_service_1 = require('./auth/auth.service');
 var AppComponent = (function () {
     function AppComponent(auth) {
         this.auth = auth;
-        this.title = 'My Privacy App!';
+        this.title = 'Privacy Guard App!';
     }
     AppComponent = __decorate([
         core_1.Component({

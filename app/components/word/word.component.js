@@ -10,7 +10,6 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 var core_1 = require('@angular/core');
 var router_1 = require('@angular/router');
-var word_detail_component_1 = require('./word-detail/word-detail.component');
 var word_edit_component_1 = require('./word-edit/word-edit.component');
 var word_service_1 = require('./word.service');
 var auth_service_1 = require('../auth/auth.service');
@@ -35,17 +34,14 @@ var WordComponent = (function () {
         this.selectedWord = word;
     };
     WordComponent.prototype.toWords = function () {
-        this._router.navigate(['/words']);
+        this._router.navigate(['/keywords']);
         location.reload();
     };
-    WordComponent.prototype.toDetail = function () {
-        this._router.navigate(['/word/detail', this.selectedWord._id]);
-    };
     WordComponent.prototype.toEdit = function (wid) {
-        this._router.navigate(['/word/edit', wid]);
+        this._router.navigate(['/keyword/edit', wid]);
     };
     WordComponent.prototype.addWord = function () {
-        this._router.navigate(['/word/new']);
+        this._router.navigate(['/keyword/new']);
     };
     WordComponent.prototype.removeWord = function (id) {
         this._wordService.deleteWord(id).subscribe();
@@ -87,7 +83,7 @@ var WordComponent = (function () {
             selector: 'my-word',
             templateUrl: 'app/components/word/word.component.html',
             styleUrls: ['app/components/word/word.component.css'],
-            directives: [word_detail_component_1.WordDetailComponent, word_edit_component_1.WordEditComponent],
+            directives: [word_edit_component_1.WordEditComponent],
             pipes: [filter_array_pipe_1.FilterArrayPipe, yes_no_pipe_1.YesNoPipe]
         }), 
         __metadata('design:paramtypes', [router_1.Router, word_service_1.WordService, auth_service_1.AuthService])

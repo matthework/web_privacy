@@ -1,33 +1,50 @@
-
-<div *ngIf!=showOut>
-  <br>
-  <h2>Privacy Guard for Documents</h2>
-  <br>
-  <input class="input-file" id="inputId" type="file" value="Load a file">
-  <!-- <button class="button-doc" (click)="modifySourcePage(input)">Load a file</button> -->
-  <br>
-  <br>
-  <br>
+<!-- Header -->
+<div class="docs-header">
+   <h1 class="col-md-10 col-md-offset-1">Document</h1>
 </div>
 
-<div *ngIf=showOut>
-  <br>
-  <h2>Result:</h2>
-  <div *ngIf=input>
-  <!-- <div class="innerhtml" [innerHTML]="bb"></div> -->
-  <object class="innerhtml" type="text/html" data="test.html"></object>
-  <br>
-  <br>
-  <h2>Original:</h2>
-  <object id="a2" class="innerhtml" type="text/html" data={{url}}></object>
+<!-- Content -->
+<div class="col-md-10 col-md-offset-1">
+
+<div *ngIf="auth.authenticated()">
+
+  <div *ngIf!=showOut>
+
+    <h3>Please load a document.</h3>
+    <br>
+    <input class="" id="inputId" type="file" value="Load a file">
+    <!-- <button class="button-doc" (click)="modifySourcePage(input)">Load a file</button> -->
+    <br>
+    <br>
+    <br>
   </div>
-  <br>
-  <br>
-  <br>
-  <button class="button-main" (click)="toMain()">Back</button>
-  <br>
-  <br>
-  <br>
+
+  <div *ngIf=showOut>
+    <br>
+    <h2>Result:</h2>
+    <div *ngIf=input>
+    <!-- <div class="innerhtml" [innerHTML]="bb"></div> -->
+    <object class="innerhtml" type="text/html" data="test.html"></object>
+    <br>
+    <br>
+    <h2>Original:</h2>
+    <object id="a2" class="innerhtml" type="text/html" data={{url}}></object>
+    </div>
+    <br>
+    <br>
+    <br>
+    <button class="button-main" (click)="toMain()">Back</button>
+    <br>
+    <br>
+    <br>
+  </div>
+
+</div>
+
+<div *ngIf="!auth.authenticated()">
+   <h3><i>You are not logged in, please click 'Log in' button to login.</i></h3>
+</div>
+
 </div>
 
 

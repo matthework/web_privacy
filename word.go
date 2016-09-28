@@ -1,6 +1,7 @@
 package main
 
 import (
+	"fmt"
 	"time"
 	"gopkg.in/mgo.v2/bson"	
 )
@@ -24,7 +25,7 @@ func listWords() (words []Word) {
 	collection := session.DB(DB).C(col_word)
 	err := collection.Find(nil).All(&words)
 	if err != nil {
-		panic(err)
+		fmt.Println(err)
 	}
 	return words
 }
@@ -36,7 +37,7 @@ func listWordsSort() (words []Word) {
 	collection := session.DB(DB).C(col_word)
 	err := collection.Find(nil).Sort("-inused","category","name").All(&words)
 	if err != nil {
-		panic(err)
+		fmt.Println(err)
 	}
 	return words
 }
@@ -50,7 +51,7 @@ func findWordByID(id string) (word Word) {
 	fQuery := bson.M{"_id": idoi}
 	err := collection.Find(fQuery).One(&word)
 	if err != nil {
-		panic(err)
+		fmt.Println(err)
 	}
 	return word
 }
@@ -62,7 +63,7 @@ func insertWord(word Word) (err error) {
 	collection := session.DB(DB).C(col_word)
 	err = collection.Insert(word)
 	if err != nil {
-		panic(err)
+		fmt.Println(err)
 	}
 	return err
 }
@@ -80,10 +81,10 @@ func updateWordByID(id string, newWord Word) (err error) {
 		change := bson.M{"$set": newWord}
 		err = collection.Update(fQuery, change)
 		if err != nil {
-			panic(err)
+			fmt.Println(err)
 		}
 	}else{
-    	panic(err)
+    	fmt.Println(err)
     }
 	return err
 }
@@ -97,7 +98,7 @@ func removeWordByID(id string) (err error) {
 	fQuery := bson.M{"_id": idoi}
 	err = collection.Remove(fQuery)
 	if err != nil {
-		panic(err)
+		fmt.Println(err)
 	}
 	return err
 }
@@ -109,7 +110,7 @@ func removeAllWords() (err error) {
 	collection := session.DB(DB).C(col_word)
 	collection.RemoveAll(nil)
 	if err != nil {
-		panic(err)
+		fmt.Println(err)
 	}
 	return err
 }

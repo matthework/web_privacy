@@ -13,8 +13,7 @@ import {AuthService} from './auth/auth.service';
 })
 
 export class AppComponent{
-    title = 'My Privacy App!';
+    title = 'Privacy Guard App!';
     constructor(private auth: AuthService) {}
 }
-
 

@@ -4,15 +4,17 @@ import {Router,ActivatedRoute} from '@angular/router';
 import {AuthService} from '../auth/auth.service';
 
 @Component({
-    selector: 'my-setting',
-    templateUrl: 'app/components/setting/setting.component.html',
-    styleUrls: ['app/components/setting/setting.component.css'],
+    selector: 'my-options',
+    templateUrl: 'app/components/options/options.component.html',
+    styleUrls: ['app/components/options/options.component.css'],
 })
 
-export class SettingComponent {
+export class OptionsComponent {
 
     active = false;
-    newWord = "";
+    newS1 = "";
+    newS2 = "";
+    newS3 = "";
     cat = "";
     inused = false;
     keywords = [{"name":"password", "cat":"personal info", "inused":true},
@@ -21,7 +23,8 @@ export class SettingComponent {
                 {"name":"sex", "cat":"health", "inused":false},
                 {"name":"age", "cat":"personal info", "inused":true}];
 
-    constructor(private _router: Router,
+    constructor(
+        private _router: Router,
         private auth: AuthService) {}
 
     toMain() {

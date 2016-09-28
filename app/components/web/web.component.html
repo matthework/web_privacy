@@ -1,43 +1,49 @@
+<!-- Header -->
+<div class="docs-header">
+   <h1 class=" col-md-10 col-md-offset-1" >
+      <span>Web</span>
+   </h1>
+</div>
+
+<!-- Content -->
+<div class="col-md-10 col-md-offset-1">
 
 <div *ngIf="auth.authenticated()">
 
-<div *ngIf!=showOut>
-  <br>
-  <h2>Privacy Guard for Webpages</h2>
-  <br>
-  <input class="input-main" type="text" [(ngModel)]="input" placeholder="Enter a URL"/>
-  <button class="button-go" (click)="modifySourcePage(input)">Go</button>
-  <p class="text-eg">eg: http://myservermatt.herokuapp.com/index.html</p>
-  <br>
-  <br>
-</div>
-
-<div *ngIf=showOut>
-  <br>
-  <h2>Result:</h2>
-  <div *ngIf=input>
-  <!-- <div class="innerhtml" [innerHTML]="bb"></div> -->
-  <object class="innerhtml" type="text/html" data="test.html"></object>
-  <br>
-  <br>
-  <h2>Original:</h2>
-  <object id="a2" class="innerhtml" type="text/html" data={{url}}></object>
+  <div *ngIf!=showOut class="form-inline">
+    <h3>Please load a webpage.</h3>
+    <br>
+    <input class="input form-control" type="text" [(ngModel)]="input" placeholder="Enter a URL"/>
+    <button class="btn btn-primary" (click)="modifySourcePage(input)">Go</button><br>
+    <br>
+    <text class="text-eg">eg: http://myservermatt.herokuapp.com/index.html</text>
+    <br>
+    <br>
   </div>
-  <br>
-  <br>
-  <br>
-  <button class="button-main" (click)="toMain()">Back</button>
-  <br>
-  <br>
-  <br>
-</div>
+
+  <div *ngIf=showOut>
+    <h3 class="text-blue"><i>Result: </i></h3>
+    <div *ngIf=input>
+    <!-- <div class="innerhtml" [innerHTML]="bb"></div> -->
+    <object class="innerhtml" type="text/html" data="test.html"></object>
+    <br>
+
+    <h3 class="text-blue"><i>Original: </i></h3>
+    <object id="a2" class="innerhtml" type="text/html" data={{url}}></object>
+    </div>
+    <br>
+    <button class="btn-big btn btn-primary" (click)="toMain()">Back</button>
+    <br>
+    <br>
+
+  </div>
 
 </div>
 
-<br>
 <div *ngIf="!auth.authenticated()">
 <h3><i>You are not logged in, please click 'Log in' button to login.</i></h3>
-{{auth.login()}}
+</div>
+
 </div>
 
 

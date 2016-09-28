@@ -9,7 +9,7 @@ create sensitive words set
 ******************* run locally *******************  
 
 // project folder  
-cd $GOPATH/src/github.com/mattwangprop/privacy   
+$GOPATH/src/github.com/mattwangprop/web_privacy  
 
 // run mongoDB server  
 mongod  
@@ -44,7 +44,7 @@ mongoexport --db badgeDB --collection badge --out badge.json
 $ go get github.com/tools/godep  
 
 // project folder  
-cd $GOPATH/src/github.com/mattwangprop/privacy   
+$GOPATH/src/github.com/mattwangprop/web_privacy   
 
 // create Godeps.json for Dependencies (or godep save for current folder only)  
 $ godep save  

@@ -1,0 +1,40 @@
+<!-- Header -->
+<div class="docs-header">
+   <h1 class=" col-md-10 col-md-offset-1" >
+      <span>Options</span>
+   </h1>
+</div>
+
+<!-- Content -->
+<div class="col-md-10 col-md-offset-1">
+
+<div *ngIf="auth.authenticated()">
+
+	<div class="col-xs-5 form-inline">
+		<br>
+		<label>Setting1: </label>
+		<input class="input form-control" type="text" [(ngModel)]="newS1" placeholder="Setting1"/><br>
+		<br>
+
+		<label>Setting2: </label>
+		<input class="input form-control" type="text" [(ngModel)]="newS2" placeholder="Setting2"/><br>
+		<br>
+
+		<label>Setting3: </label>
+		<input class="input form-control" type="text" [(ngModel)]="newS3" placeholder="Setting3"/><br>
+		<br>
+
+		<br>
+		<button class="btn-big btn btn-danger pull-right" (click)="toMain()">Cancel</button>
+		<button class="btn-big btn btn-success pull-right" (click)="toMain()">Save</button>
+		
+
+	</div>
+
+</div>
+
+<div *ngIf="!auth.authenticated()">
+<h3><i>You are not logged in, please click 'Log in' button to login.</i></h3>
+</div>
+
+</div>

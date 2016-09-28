@@ -1,46 +1,45 @@
+<!-- Header -->
+<div class="docs-header">
+   <h1 class=" col-md-10 col-md-offset-1" >
+      <span>Keywords</span>
+      <span *ngIf="!words && auth.authenticated()">Add New Keyword</span>
+   </h1>
+</div>
+
+<!-- Content -->
+<div class="col-md-10 col-md-offset-1">
 
 <div *ngIf="auth.authenticated()">
 
-<div *ngIf="words">
-<h2>Keywords</h2>
-<input [(ngModel)]="query" placeholder="Search for">
-<button class="button-add" *ngIf="showAll" (click)="addWord()">+</button>
-<button class="button-back" *ngIf="!showAll" (click)="toWords()">Back</button>
-</div>
+   <div class="form-inline">
+      <input class="input form-control" type="text" [(ngModel)]="query" placeholder="Search for">
+      <button class="btn btn-primary" (click)="addWord()">+</button>
+   </div>
+   <br>
 
-<div *ngIf!="words">
-<h2>Add New Keyword</h2>
-<input [(ngModel)]="query" placeholder="Search for">
-<button class="button-add2" (click)="addWord()">+</button><br>
-</div>
-
-<table class="table-words">
-   <tr>
-      <th class="th-name">Name</th>
-      <th class="th-cat">Category</th>
-      <th class="th-tags">Tags</th>
-      <th class="th-inused">InUsed</th>
-      <th class="th-last"></th>
-   </tr>
-   <tr *ngFor="let word of words | filter:query">
-      <td class="word" (click)="onSelect(word);toEdit(word._id)">{{word.name}}</td>
-      <td class="td-cat">
-         <text class="t-cat" (click)="groupByCat(word.category)">{{word.category}}</text>
-      </td>
-      <td class="td-tags">
-         <text *ngFor="let tag of word.tags"><text class="t-tag" (click)="groupByTag(tag)"> {{tag}}, </text></text>
-      </td>
-      <td class="td-inused">{{word.inused | yes_no}}</td>
-      <td class="td-last"><button class="button-s-x" (click)="deleteWordPop(word._id)">X</button></td>
-   </tr>
-</table>
+   <div *ngIf="words" class="row col-xs-12 header hidden-xs">
+      <div class="col-xs-2">Name</div>
+      <div class="col-xs-4">Category</div>
+      <div class="col-xs-4">Tags</div>
+      <div class="col-xs-2">InUsed</div>
+   </div>
+   <div class="row col-xs-12 div-list-item" *ngFor="let word of words | filter:query">
+      <div class="col-sm-2 btn btn-primary wrap" (click)="onSelect(word);toEdit(word._id)"><span>{{word.name}}</span></div>
+      <div class="col-sm-4">
+         <text class="click text-blue" (click)="groupByCat(word.category)">{{word.category}}</text>
+      </div>
+      <div class="col-sm-4">
+         <text *ngFor="let tag of word.tags"><text class="click text-blue" (click)="groupByTag(tag)"> {{tag}}, </text></text>
+      </div>
+      <div class="col-sm-1">{{word.inused | yes_no}}</div>
+   </div>
 
 </div>
 
-<br>
 <div *ngIf="!auth.authenticated()">
 <h3><i>You are not logged in, please click 'Log in' button to login.</i></h3>
-{{auth.login()}}
+</div>
+
 </div>
 
 

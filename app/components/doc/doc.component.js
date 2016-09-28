@@ -10,9 +10,11 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 var core_1 = require('@angular/core');
 var router_1 = require('@angular/router');
+var auth_service_1 = require('../auth/auth.service');
 var DocComponent = (function () {
-    function DocComponent(_router) {
+    function DocComponent(_router, auth) {
         this._router = _router;
+        this.auth = auth;
         this.input = "";
         this.url = "";
         this.showOut = false;
@@ -41,7 +43,7 @@ var DocComponent = (function () {
             templateUrl: 'app/components/doc/doc.component.html',
             styleUrls: ['app/components/doc/doc.component.css'],
         }), 
-        __metadata('design:paramtypes', [router_1.Router])
+        __metadata('design:paramtypes', [router_1.Router, auth_service_1.AuthService])
     ], DocComponent);
     return DocComponent;
 }());

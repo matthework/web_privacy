@@ -1,44 +1,57 @@
-
-<div *ngIf="auth.authenticated()">
-
-<h2>Add New Keyword</h2><br>
-
-<label>*Name: </label>
-<input class="input-name" type="text" [(ngModel)]="newWord.name" placeholder="" /><br>
-
-<label>Category: </label>
-<input class="input-cat" type="text" [(ngModel)]="newWord.category" placeholder="" /><br>
-
-<label>Tags: </label>
-<input class="input-tags" type="text" [(ngModel)]="newTag" placeholder=""><button class="button-s-add" (click)="addTag(newTag)">+</button><text *ngFor="let tag of newWord.tags">{{tag}} <button class="button-s-delete" (click)="deleteTag(tag)">-</button></text><br>
-
-<label>InUsed: </label>
-<input type="checkbox" [(ngModel)]="newWord.inused" placeholder="InUsed" /><br>
-<br>
-<br>
-
-<div *ngIf="wordNet">
-<h3>Find more Synonyms from WordNet.</h3>
-<button class="button-wnet-save" (click)="wordNet=false">Save</button>
-<button class="button-wnet-cancel" (click)="wordNet=false">Cancel</button><br>
+<!-- Header -->
+<div class="docs-header">
+   <h1 class=" col-md-10 col-md-offset-1" >
+      <span>Add New Keyword</span>
+   </h1>
 </div>
 
-<div *ngIf="!wordNet">
-<button class="button-wordnet" *ngIf="!wordNet" (click)="wordNet=true">+ WordNet</button>
-<button class="button-add" [disabled]="!newWord.name" (click)="addWord()">Save</button>
-<button class="button-cancel" (click)="toWords()">Cancel</button>
-</div>
-<br>
-<br>
-<br>
+<!-- Content -->
+<div class="col-md-10 col-md-offset-1">
+
+<div *ngIf="auth.authenticated()" class="form-inline">
+
+	<label>*Name: </label>
+	<input class="input-upper  form-control" type="text" [(ngModel)]="newWord.name"/><br>
+	<br>
+
+	<label>Category: </label>
+	<input class="input-upper  form-control" type="text" [(ngModel)]="newWord.category"/><br>
+	<br>
+
+	<label>Tags: </label>
+	<input class="input-upper form-control" type="text" [(ngModel)]="newTag"><button class="btn btn-small btn-add  btn-default" (click)="addTag(newTag)">+</button><text *ngFor="let tag of newWord.tags">{{tag}} <button class="btn btn-small btn-del btn-default" (click)="deleteTag(tag)">-</button></text><br>
+	<br>
+
+	<label>InUsed: </label>
+	<input type="checkbox" [(ngModel)]="newWord.inused"/><br>
+	<br>
+	<br>
+
+	<div *ngIf="!wordNet">
+		<button class="btn btn-big btn-default" *ngIf="!wordNet" (click)="wordNet=true">+ WordNet</button><br>
+		<br>
+		<div class="col-xs-5">
+			<button class="btn btn-big btn-danger pull-right" (click)="toWords()">Cancel</button>
+			<button class="btn btn-big btn-success pull-right" [disabled]="!newWord.name" (click)="addWord()">Save</button>
+		</div>
+	</div>
+	<br>
+
+	<div *ngIf="wordNet" class="col col-xs-6">
+		<h4 class="text-blue">Find more Synonyms from WordNet.</h4>
+		<h4>{{newWord.name}}</h4>
+		<button class="btn btn-big btn-danger pull-right" (click)="wordNet=false">Cancel</button>
+		<button class="btn btn-big btn-success pull-right" (click)="wordNet=false">Add</button>
+	</div>
 
 </div>
 
-<br>
 <div *ngIf="!auth.authenticated()">
 <h3><i>You are not logged in, please click 'Log in' button to login.</i></h3>
-{{auth.login()}}
 </div>
+
+</div>
+
 
 
 

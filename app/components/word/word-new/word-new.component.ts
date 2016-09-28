@@ -33,7 +33,7 @@ export class WordNewComponent {
   }
 
   toWords() {
-    this._router.navigate(['/words']);
+    this._router.navigate(['/keywords']);
     // location.reload();
   }
 
