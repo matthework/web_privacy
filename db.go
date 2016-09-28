@@ -6,12 +6,12 @@ import (
 	"gopkg.in/mgo.v2"
 )
 
-var connectURL = "localhost"
-var DB = "privacy"
+// var connectURL = "localhost"
+// var DB = "privacy"
 
 // mlab mongodb - heroku
-// var connectURL = os.Getenv("MONGODB_URI") 
-// var DB = os.Getenv("MONGODB_DB")
+var connectURL = os.Getenv("MONGODB_URI") 
+var DB = os.Getenv("MONGODB_DB")
 
 func connect() (session *mgo.Session) {
 	session, err := mgo.Dial(connectURL)

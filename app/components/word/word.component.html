@@ -1,7 +1,7 @@
 <!-- Header -->
 <div class="docs-header">
    <h1 class=" col-md-10 col-md-offset-1" >
-      <span>Keywords</span>
+      <span *ngIf="words">Keywords</span>
       <span *ngIf="!words && auth.authenticated()">Add New Keyword</span>
    </h1>
 </div>
