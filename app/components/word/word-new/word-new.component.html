@@ -11,15 +11,15 @@
 <div *ngIf="auth.authenticated()" class="form-inline">
 
 	<label>*Name: </label>
-	<input class="input-upper  form-control" type="text" [(ngModel)]="newWord.name"/><br>
+	<input class="input-upper input form-control" type="text" [(ngModel)]="newWord.name"/><br>
 	<br>
 
 	<label>Category: </label>
-	<input class="input-upper  form-control" type="text" [(ngModel)]="newWord.category"/><br>
+	<input class="input-upper input form-control" type="text" [(ngModel)]="newWord.category"/><br>
 	<br>
 
 	<label>Tags: </label>
-	<input class="input-upper form-control" type="text" [(ngModel)]="newTag"><button class="btn btn-small btn-add  btn-default" (click)="addTag(newTag)">+</button><text *ngFor="let tag of newWord.tags">{{tag}} <button class="btn btn-small btn-del btn-default" (click)="deleteTag(tag)">-</button></text><br>
+	<input class="input-upper input form-control" type="text" [(ngModel)]="newTag"><button class="btn btn-small btn-add  btn-default" (click)="addTag(newTag)">+</button><text *ngFor="let tag of newWord.tags">{{tag}} <button class="btn btn-small btn-del btn-default" (click)="deleteTag(tag)">-</button></text><br>
 	<br>
 
 	<label>InUsed: </label>

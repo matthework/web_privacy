@@ -14,15 +14,15 @@
 	<br>
 
 	<label>Name: </label>
-	<input class="input-upper form-control" type="text" [(ngModel)]="word.name"><br>
+	<input class="input-upper input form-control" type="text" [(ngModel)]="word.name"><br>
 	<br>
 
 	<label>Category: </label>
-	<input class="input-upper form-control" type="text" [(ngModel)]="word.category"><br>
+	<input class="input-upper input form-control" type="text" [(ngModel)]="word.category"><br>
 	<br>
 
 	<label>Tags: </label>
-	<input class="input-upper form-control" type="text" [(ngModel)]="newTag"><button class="btn btn-add btn-default" (click)="addTag(newTag)">+</button><text *ngFor="let tag of word.tags">{{tag}} <button class="btn btn-del btn-default" (click)="deleteTag(tag)">-</button></text><br>
+	<input class="input-upper input form-control" type="text" [(ngModel)]="newTag"><button class="btn btn-add btn-default" (click)="addTag(newTag)">+</button><text *ngFor="let tag of word.tags">{{tag}} <button class="btn btn-del btn-default" (click)="deleteTag(tag)">-</button></text><br>
 	<br>
 
 	<label>InUsed: </label>
@@ -42,7 +42,7 @@
 
 	<div *ngIf="wordNet" class="col col-xs-6">
 		<h4 class="text-blue">Find more Synonyms from WordNet.</h4>
-		
+
 		<button class="btn btn-big btn-danger pull-right" (click)="wordNet=false">Cancel</button>
 		<button class="btn btn-big btn-success pull-right" (click)="wordNet=false">Add</button>
 	</div>
