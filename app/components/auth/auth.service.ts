@@ -10,13 +10,13 @@ declare var Auth0Lock: any;
 export class AuthService {
 
   // Configure Auth0
-  lock = new Auth0Lock('wq5I8GVnGaO0PlwJJK9E32FTacNJqdLB', 'mattwangprop.auth0.com', {
+  lock = new Auth0Lock('wGZDXcZj3lSiNrbo5ZXcuEFShxvQsaqj', 'matthework.auth0.com', {
     theme: {
       logo: "icon1.png",
       primaryColor: "#4CAF50"
     },
     languageDictionary: {
-      title: "Privacy Guard"
+      title: "Web Privacy"
     },
   });
 

@@ -18,13 +18,13 @@ var AuthService = (function () {
         this._router = _router;
         this._http = _http;
         // Configure Auth0
-        this.lock = new Auth0Lock('wq5I8GVnGaO0PlwJJK9E32FTacNJqdLB', 'mattwangprop.auth0.com', {
+        this.lock = new Auth0Lock('wGZDXcZj3lSiNrbo5ZXcuEFShxvQsaqj', 'matthework.auth0.com', {
             theme: {
                 logo: "icon1.png",
                 primaryColor: "#4CAF50"
             },
             languageDictionary: {
-                title: "Privacy Guard"
+                title: "Web Privacy"
             },
         });
         // Set userProfile attribute if already saved profile

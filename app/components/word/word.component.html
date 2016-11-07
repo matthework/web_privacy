@@ -17,14 +17,14 @@
    </div>
    <br>
 
-   <div *ngIf="words" class="row col col-xs-11 header hidden-xs">
-      <div class="col-xs-3">Name</div>
+   <div *ngIf="words" class="row col col-xs-10 header hidden-xs">
+      <div class="col-xs-4">Name</div>
       <div class="col-xs-3">Category</div>
       <div class="col-xs-3">Tags</div>
-      <div class="col-xs-2">InUsed</div>
+      <div class="col-xs-1">InUsed</div>
    </div>
-   <div class="row col col-xs-11 div-list-item" *ngFor="let word of words | filter:query">
-      <div class="col-sm-3">
+   <div class="row col col-xs-10 div-list-item" *ngFor="let word of words | filter:query">
+      <div class="col-sm-4">
          <button class="btn-b btn btn-primary wrap" (click)="onSelect(word);toEdit(word._id)">{{word.name}}</button>
       </div>
       <div class="col-sm-3">
@@ -33,7 +33,7 @@
       <div class="col-sm-3">
          <text *ngFor="let tag of word.tags"><text class="click text-blue" (click)="groupByTag(tag)"> {{tag}}, </text></text>
       </div>
-      <div class="col-sm-2">{{word.inused | yes_no}}</div>
+      <div class="col-sm-1">{{word.inused | yes_no}}</div>
    </div>
 
 </div>
