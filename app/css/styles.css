@@ -111,16 +111,14 @@ th , td  {
 .btn {
   margin-left: 5px;
 }
-.btn-blue {
+.btn-blue:hover {
    color: white;
    background-color: #039be5;
-   border: 0;
 }
-.btn-delete {
+/*.btn-delete {
   color: white;
   background-color: pink;
-  border: 0;
-}
+}*/
 .btn-delete:hover {
   color: white;
   background-color: red;
@@ -135,7 +133,7 @@ th , td  {
   width: 6em;
 }
 .btn-add {
-   width: 40px;
+   width: 38px;
    margin-left: 10px;
    margin-right: 20px;
 }
@@ -148,7 +146,6 @@ th , td  {
   margin-right: 10px;
   color: white;
   background-color: pink;
-  border: 0;
 }
 .btn-del:hover {
   color: white;
@@ -163,4 +160,14 @@ th , td  {
 .btn-b {
   width: 200px;
   margin-left: 0;
+}
+.btn-left0 {
+  margin-left: 0px;
+}
+.btn-right {
+  margin-right: 4px;
+}
+.input {
+  width: 250px;
+  margin-right: 0px;
 }
