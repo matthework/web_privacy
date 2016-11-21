@@ -139,7 +139,7 @@ th , td  {
 }
 .btn-add:hover {
   color: white;
-  background-color: limegreen;
+  background-color: #039be5;
 }
 .btn-del {
   width: 38px;
@@ -170,4 +170,8 @@ th , td  {
 .input {
   width: 250px;
   margin-right: 0px;
+}
+.btn-bhover:hover {
+   color: white;
+   background-color: #039be5;
 }
