@@ -42,6 +42,7 @@ export class AuthService {
         profile.user_metadata = profile.user_metadata || {};
         localStorage.setItem('profile', JSON.stringify(profile));
         this.userProfile = profile;
+        this.toMain();
       });
 
     });
@@ -63,9 +64,15 @@ export class AuthService {
     localStorage.removeItem('id_token');
     localStorage.removeItem('profile');
     this.userProfile = undefined;
-    location.reload();
+    // location.reload();
+    this.toMain();
   };
 
+  toMain() {
+    this._router.navigate(['/main']);
+    // location.reload();
+  }
+  
 }
 
 

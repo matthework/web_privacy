@@ -42,6 +42,7 @@ var AuthService = (function () {
                 profile.user_metadata = profile.user_metadata || {};
                 localStorage.setItem('profile', JSON.stringify(profile));
                 _this.userProfile = profile;
+                _this.toMain();
             });
         });
     }
@@ -61,9 +62,14 @@ var AuthService = (function () {
         localStorage.removeItem('id_token');
         localStorage.removeItem('profile');
         this.userProfile = undefined;
-        location.reload();
+        // location.reload();
+        this.toMain();
     };
     ;
+    AuthService.prototype.toMain = function () {
+        this._router.navigate(['/main']);
+        // location.reload();
+    };
     AuthService = __decorate([
         core_1.Injectable(), 
         __metadata('design:paramtypes', [router_1.Router, http_1.Http])
