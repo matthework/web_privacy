@@ -9,7 +9,7 @@ create sensitive words set
 ******************* run locally *******************  
 
 // project folder  
-$GOPATH/src/github.com/mattwangprop/web_privacy  
+$GOPATH/src/github.com/matthework/web_privacy  
 
 // run mongoDB server  
 mongod  
@@ -44,7 +44,7 @@ mongoexport --db badgeDB --collection badge --out badge.json
 $ go get github.com/tools/godep  
 
 // project folder  
-$GOPATH/src/github.com/mattwangprop/web_privacy   
+$GOPATH/src/github.com/matthework/web_privacy   
 
 // create Godeps.json for Dependencies (or godep save for current folder only)  
 $ godep save  
@@ -80,11 +80,32 @@ db.badge.drop()
 db.dropDatabase()  
 
 
+******************* Wordnet *******************  
+
+Dear Matt,
+
+Thanks for applying to use our APIs. Your application has been approved!  
+
+Here are your new API credentials:  
+
+User ID: 5289  
+Token: JMRltpwbHc2aFNf9  
+Web Admin Password: qznHEyou  
+
+The API documentation pages and the API dashboard login can be found here: http://  www.abbreviations.com/api.php  
+
+The dashboard interface provides various stats about your API usage per service and quota   limits.  
+
+We would like to remind you that we require a credit line and a link back to our website   placed at a visible location on your work. Your free subscription is limited to a 100 queries   per day, please feel free to inquire about our premium API options.  
+
+We are very excited to have you as a new API user, and we wish you great luck with your   product!  
+
+Yours truly,  
+The STANDS4 team  
+
+
 ******************* others *******************  
 
-matt.wang@propellerhead.co.nz  
-
-
-************** How to run ****************  
+matthework@hotmail.com 
 
  
