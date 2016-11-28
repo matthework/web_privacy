@@ -11,7 +11,8 @@ var word_new_component_1 = require('./word/word-new/word-new.component');
 var routes = [
     {
         path: '',
-        component: main_component_1.MainComponent,
+        redirectTo: 'main',
+        pathMatch: 'full'
     },
     {
         path: 'main',

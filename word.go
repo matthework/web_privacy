@@ -35,7 +35,7 @@ func listWordsSort() (words []Word) {
 	defer session.Close()
 
 	collection := session.DB(DB).C(col_word)
-	err := collection.Find(nil).Sort("-inused","category","name").All(&words)
+	err := collection.Find(nil).Sort("-inused","name").All(&words)
 	if err != nil {
 		fmt.Println(err)
 	}

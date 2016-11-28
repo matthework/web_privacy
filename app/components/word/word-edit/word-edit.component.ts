@@ -49,7 +49,7 @@ export class WordEditComponent implements OnInit {
 
   toWords() {
     this._router.navigate(['/keywords']);
-    // location.reload();
+    location.reload();
   }
 
   toWordDetail() {

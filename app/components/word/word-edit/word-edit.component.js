@@ -42,7 +42,7 @@ var WordEditComponent = (function () {
     };
     WordEditComponent.prototype.toWords = function () {
         this._router.navigate(['/keywords']);
-        // location.reload();
+        location.reload();
     };
     WordEditComponent.prototype.toWordDetail = function () {
         this._router.navigate(['/keyword/detail', this.id]);

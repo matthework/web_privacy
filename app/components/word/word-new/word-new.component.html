@@ -29,14 +29,14 @@
 
 	<div *ngIf="wordNet" class="col col-xs-6">
 		<h4 class="text-blue">Find more Synonyms from WordNet.</h4>
-		<h4>{{newWord.name}}</h4>
+		<h4>{{newWord.name}}</h4>{{xml}}
 		<br>
 		<button class="btn btn-big btn-danger pull-right" (click)="wordNet=false">Cancel</button>
 		<button class="btn btn-big btn-right btn-success pull-right" (click)="wordNet=false">Add</button>
 	</div>
 
 	<div *ngIf="!wordNet" class="col col-xs-6">
-		<button class="btn btn-big btn-left0 btn-primary" *ngIf="!wordNet" (click)="wordNet=true">+ WordNet</button><br>
+		<button class="btn btn-big btn-left0 btn-primary" *ngIf="!wordNet" (click)="wordNet=true;getWordNet(newWord.name)">+ WordNet</button><br>
 		<br>
 		<button class="btn btn-big btn-danger pull-right" (click)="toWords()">Cancel</button>
 		<button class="btn btn-big btn-right btn-success pull-right" [disabled]="!newWord.name" (click)="addWord()">Save</button>

@@ -16,7 +16,7 @@ export class AuthService {
       primaryColor: "#4CAF50"
     },
     languageDictionary: {
-      title: "Web Privacy"
+      title: "Privacy Guard"
     },
   });
 
@@ -40,6 +40,7 @@ export class AuthService {
         }
 
         profile.user_metadata = profile.user_metadata || {};
+        profile.app_metadata = profile.app_metadata || {};
         localStorage.setItem('profile', JSON.stringify(profile));
         this.userProfile = profile;
         this.toMain();
@@ -59,6 +60,16 @@ export class AuthService {
     return tokenNotExpired();
   };
 
+  public isAdmin() {
+    // Check if it is admin user
+    var isAdmin = false;
+    if(this.userProfile && this.userProfile.app_metadata && this.userProfile.app_metadata.isAdmin) {
+    // if(this.userProfile.app_metadata.isAdmin) {
+      isAdmin = true;
+    }
+    return isAdmin;
+  };
+
   public logout() {
     // Remove token from localStorage
     localStorage.removeItem('id_token');
@@ -72,7 +83,7 @@ export class AuthService {
     this._router.navigate(['/main']);
     // location.reload();
   }
-  
+
 }
 
 
