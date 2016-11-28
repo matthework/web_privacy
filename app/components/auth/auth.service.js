@@ -24,7 +24,7 @@ var AuthService = (function () {
                 primaryColor: "#4CAF50"
             },
             languageDictionary: {
-                title: "Web Privacy"
+                title: "Privacy Guard"
             },
         });
         // Set userProfile attribute if already saved profile
@@ -40,6 +40,7 @@ var AuthService = (function () {
                     return;
                 }
                 profile.user_metadata = profile.user_metadata || {};
+                profile.app_metadata = profile.app_metadata || {};
                 localStorage.setItem('profile', JSON.stringify(profile));
                 _this.userProfile = profile;
                 _this.toMain();
@@ -55,6 +56,16 @@ var AuthService = (function () {
         // Check if there's an unexpired JWT
         // It searches for an item in localStorage with key == 'id_token'
         return angular2_jwt_1.tokenNotExpired();
+    };
+    ;
+    AuthService.prototype.isAdmin = function () {
+        // Check if it is admin user
+        var isAdmin = false;
+        if (this.userProfile && this.userProfile.app_metadata && this.userProfile.app_metadata.isAdmin) {
+            // if(this.userProfile.app_metadata.isAdmin) {
+            isAdmin = true;
+        }
+        return isAdmin;
     };
     ;
     AuthService.prototype.logout = function () {

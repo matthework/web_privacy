@@ -13,7 +13,8 @@ import {WordNewComponent} from './word/word-new/word-new.component';
 const routes: RouterConfig = [
   {
       path: '',
-      component: MainComponent,
+      redirectTo: 'main',
+      pathMatch: 'full'
   },
   {
       path: 'main',

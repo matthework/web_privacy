@@ -34,5 +34,12 @@ export class WordService {
 		return this._http.post('/api/word/remove/'+id, "");
 	}
 
+	getWordNet(word:string) {
+		let headers = new Headers();
+  		headers.append('Accept', 'application/xml');
+  		return this._http.get('http://www.stands4.com/services/v2/syno.php?uid=5289&tokenid=JMRltpwbHc2aFNf9&word='+word).map(res => JSON.parse(xml2json(res.text(), '	')));
+		// return this._http.get('http://www.stands4.com/services/v2/syno.php?uid=5289&tokenid=JMRltpwbHc2aFNf9&word='+word).map(r => r.json());
+	}
+
 }
 

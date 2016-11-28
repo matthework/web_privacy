@@ -2,7 +2,6 @@ import {Component} from '@angular/core';
 import {Router} from '@angular/router';
 import {Word} from '../word';
 import {WordService} from '../word.service';
-
 import {AuthService} from '../../auth/auth.service';
 
 @Component({
@@ -16,6 +15,7 @@ export class WordNewComponent {
   newWord = {name:"", category:"", tags:[], inused:true, others:[]};
   newTag = "";
   wordNet = false;
+  xml = [];
 
   constructor(
     private _wordService: WordService, 
@@ -34,7 +34,7 @@ export class WordNewComponent {
 
   toWords() {
     this._router.navigate(['/keywords']);
-    // location.reload();
+    location.reload();
   }
 
   addTag(tag:string) {
@@ -49,7 +49,15 @@ export class WordNewComponent {
   goBack() {
     window.history.back();
   }
-  
+
+  getWordNet(w:string) {
+    // var parser = require('xml2json');
+    // console.log('Word: ', w); 
+    this._wordService.getWordNet(w).subscribe((xml) => {this.xml = xml;});
+    // var json = xml2json(this.xml); 
+    // console.log("to json -> %s", json);
+  }
+   
 }
 
 

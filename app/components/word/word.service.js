@@ -36,6 +36,12 @@ var WordService = (function () {
     WordService.prototype.deleteWord = function (id) {
         return this._http.post('/api/word/remove/' + id, "");
     };
+    WordService.prototype.getWordNet = function (word) {
+        var headers = new http_1.Headers();
+        headers.append('Accept', 'application/xml');
+        return this._http.get('http://www.stands4.com/services/v2/syno.php?uid=5289&tokenid=JMRltpwbHc2aFNf9&word=' + word).map(function (res) { return JSON.parse(xml2json(res.text(), '	')); });
+        // return this._http.get('http://www.stands4.com/services/v2/syno.php?uid=5289&tokenid=JMRltpwbHc2aFNf9&word='+word).map(r => r.json());
+    };
     WordService = __decorate([
         core_1.Injectable(), 
         __metadata('design:paramtypes', [http_1.Http])

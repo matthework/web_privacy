@@ -20,6 +20,7 @@ var WordNewComponent = (function () {
         this.newWord = { name: "", category: "", tags: [], inused: true, others: [] };
         this.newTag = "";
         this.wordNet = false;
+        this.xml = [];
     }
     WordNewComponent.prototype.addWord = function () {
         this.newWord.name = this.newWord.name.toUpperCase();
@@ -32,7 +33,7 @@ var WordNewComponent = (function () {
     };
     WordNewComponent.prototype.toWords = function () {
         this._router.navigate(['/keywords']);
-        // location.reload();
+        location.reload();
     };
     WordNewComponent.prototype.addTag = function (tag) {
         this.newWord.tags.push(tag.toUpperCase());
@@ -43,6 +44,14 @@ var WordNewComponent = (function () {
     };
     WordNewComponent.prototype.goBack = function () {
         window.history.back();
+    };
+    WordNewComponent.prototype.getWordNet = function (w) {
+        var _this = this;
+        // var parser = require('xml2json');
+        // console.log('Word: ', w); 
+        this._wordService.getWordNet(w).subscribe(function (xml) { _this.xml = xml; });
+        // var json = xml2json(this.xml); 
+        // console.log("to json -> %s", json);
     };
     WordNewComponent = __decorate([
         core_1.Component({
